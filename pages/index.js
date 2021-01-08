@@ -15,7 +15,6 @@ export default function Home(props) {
 export async function getServerSideProps(context){
     const response = await fetch('http://xkcd.com/info.0.json');
     const data = await response.json();
-
     return {
         props: {
             comic:data
@@ -33,7 +32,7 @@ function Footer(props){
             <h2> Previous {comics.length}</h2>
             <ul>
                 {comics.map(num => (
-                    <Link href="/num/[id].js" as={`/num/${num}`} key={num}>
+                    <Link href="/num/[id].js" as={`/num/${num}`}>
                         <a> #{num}</a>
                     </Link>
                 ))}
